@@ -1,0 +1,17 @@
+<div [ngStyle]= "{ 'background': 'white' }" [ngClass]="'toDoDiv'">
+  <h2>TODO List</h2>
+  <h4>A place to store your todos</h4>
+  <input type="text" [ngClass]=" 'filter_input' " placeholder="Filter your to-dos" />
+  <div [ngClass]="'toDo_container'" *ngFor="let item of toDoList; index as i">
+    <p [ngClass]="'toDoItem'">{{i+1}}. <button [ngClass]="'complete_btn'" *ngIf=" item.complete === true ">
+      Complete</button> {{item.task}}<button
+      [ngClass]="'remove_btn'" (click)="removeTask(i)"><i class="fas fa-trash-alt"></i>
+    </button></p>
+  </div>
+  <form>
+    <label for="todo_input"></label>
+    <input type="text" id='todo_input' [ngClass]=" 'todo_input' " placeholder="Add your to-do" />
+    <button [ngClass]="'add_btn'" [ngStyle]="{ 'background': '#ff1493', 'color': 'white' }" >Add</button>
+  </form>
+  
+</div>
